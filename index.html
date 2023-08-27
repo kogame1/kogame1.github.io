@@ -24,7 +24,7 @@
         <!-- Navigation-->
         <nav class="navbar navbar-expand-lg navbar-light fixed-top py-3" id="mainNav">
             <div class="container px-4 px-lg-5">
-                <a class="navbar-brand" href="#page-top">초대장</a>
+                <a class="navbar-brand" href="#page-top">초대장장</a>
                 <button class="navbar-toggler navbar-toggler-right" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
                 <div class="collapse navbar-collapse" id="navbarResponsive">
                     <ul class="navbar-nav ms-auto my-2 my-lg-0">
@@ -32,7 +32,7 @@
                         <li class="nav-item"><a class="nav-link" href="#services">사진</a></li>
                         <li class="nav-item"><a class="nav-link" href="#portfolio">오시는길(약도)</a></li>
                         <li class="nav-item"><a class="nav-link" href="#contact">오시는길(사진)</a></li>
-                        <li class="nav-item"><a class="nav-link" href="#guest-book">방명록</a></li> /* 230729 추가 */
+                        <li class="nav-item"><a class="nav-link" href="#guest-book">방명록</a></li> <!-- 230729 추가 -->
                     </ul>
                 </div>
             </div>
@@ -73,27 +73,6 @@
                 <div class="row gx-4 gx-lg-5">
                     <div class="col-lg-3 col-md-6 text-center">
                         <div class="mt-5">
-                            <div class="mb-2"><i class="bi-gem fs-1 text-primary"></i></div>
-                            <h3 class="h4 mb-2">Sturdy Themes</h3>
-                            <p class="text-muted mb-0">Our themes are updated regularly to keep them bug free!</p>
-                        </div>
-                    </div>
-                    <div class="col-lg-3 col-md-6 text-center">
-                        <div class="mt-5">
-                            <div class="mb-2"><i class="bi-laptop fs-1 text-primary"></i></div>
-                            <h3 class="h4 mb-2">Up to Date</h3>
-                            <p class="text-muted mb-0">All dependencies are kept current to keep things fresh.</p>
-                        </div>
-                    </div>
-                    <div class="col-lg-3 col-md-6 text-center">
-                        <div class="mt-5">
-                            <div class="mb-2"><i class="bi-globe fs-1 text-primary"></i></div>
-                            <h3 class="h4 mb-2">Ready to Publish</h3>
-                            <p class="text-muted mb-0">You can use this design as is, or you can make changes!</p>
-                        </div>
-                    </div>
-                    <div class="col-lg-3 col-md-6 text-center">
-                        <div class="mt-5">
                             <div class="mb-2"><i class="bi-heart fs-1 text-primary"></i></div>
                             <h3 class="h4 mb-2">Made with Love</h3>
                             <p class="text-muted mb-0">Is it really open source if it's not made with love?</p>
@@ -101,6 +80,17 @@
                     </div>
                 </div>
             </div>
+         <script type="text/javascript" src="https://oapi.map.naver.com/openapi/v3/maps.js?ncpClientId=dq8jk6ll4q&callback=initMap"></script>
+             <script type="text/javascript">
+              var map = null;
+
+              function initMap() {
+                map = new naver.maps.Map('map', {
+                center: new naver.maps.LatLng(37.3595704, 127.105399),
+                zoom: 10
+               });
+             }
+        </script>
         </section>
         <!-- Portfolio-->
         <div id="portfolio">
