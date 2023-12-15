@@ -1,0 +1,711 @@
+<!DOCTYPE html>
+<!-- 연습용 -->
+<html lang="ko"> <!-- 230729 스크린 리더를 위해 lang="ko"로 변경 -->
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+        <meta name="description" content="태훈이와 유라의 결혼식 모바일청첩장" />
+        <meta name="author" content="박태" />
+        <meta name="keywords" content="박태훈 청첩장, 김유라 청첩장"/> <!-- 230729 추가 -->
+        <title>태훈 & 유라의 결혼식에 초대합니다♡</title>
+        <!-- Favicon-->
+        <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
+        <!-- Bootstrap Icons-->
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css" rel="stylesheet" />
+        <!-- Google fonts-->
+        <link href="https://fonts.googleapis.com/css?family=Merriweather+Sans:400,700" rel="stylesheet" />
+        <link href="https://fonts.googleapis.com/css?family=Merriweather:400,300,300italic,400italic,700,700italic" rel="stylesheet" type="text/css" /> <!-- 230729 HTML5부터는 type="test/css" 기입 필요하지않음. 그렇지만 이거는 style 태그안의 것이 아니라서 잘 모르겠음.-->
+        <!-- SimpleLightbox plugin CSS-->
+        <link href="https://cdnjs.cloudflare.com/ajax/libs/SimpleLightbox/2.1.0/simpleLightbox.min.css" rel="stylesheet" /> <!-- 230729 사진창 열릴 때 예쁘게보이는 플러그인 -->
+        <!-- Core theme CSS (includes Bootstrap)-->
+        <link href="css/styles.css" rel="stylesheet" />
+        <link href="css/styles_th.css" rel="stylesheet" />
+
+
+        <!-- 231008_게시판용 내용 추가 -->
+
+        <!-- update the version number as needed -->
+        <!-- <script defer src="/__/firebase/10.3.1/firebase-app-compat.js"></script> -->
+        <!-- include only the Firebase features as you need -->
+        <!-- <script defer src="/__/firebase/10.3.1/firebase-firestore-compat.js"></script> -->
+
+        <!-- 
+        initialize the SDK after all desired features are loaded, set useEmulator to false
+        to avoid connecting the SDK to running emulators.
+        -->
+        <!-- <script defer src="/__/firebase/init.js?useEmulator=true"></script> -->
+
+
+        <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+
+
+        <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.min.js" integrity="sha384-Rx+T1VzGupg4BHQYs2gCW9It+akI2MM/mndMCy36UVfodzcJcF0GGLxZIzObiEfa" crossorigin="anonymous"></script>
+
+
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+
+        <link rel="stylesheet" href="main.css">
+
+        <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+
+        <!-- <style>
+        body{font-family: 'nanum';}
+        </style> -->
+    </head>
+    
+    <style type="text/css">
+        body {
+          --bs-font-sans-serif:margin:0; padding:0;font-size:14px;line-height:1.6;font-family:'nanum';color:#464646;letter-spacing:0;-webkit-text-size-adjust:none;font-weight: 400;
+        }
+    </style>
+
+    <body id="page-top">
+    
+
+         
+        
+        <!-- 눈 내리기 만들기. css는 별도폴더에 넣음 -->
+        <!-- <script>
+
+        const body = document.querySelector("body");
+        
+        const MIN_DURATION = 40;
+        
+        function wait(sec) {
+            let start = Date.now(), now = start;
+            while (now - start < sec * 1000) {
+                now = Date.now();
+            }
+        }
+
+
+        function makeSnowflake() {
+            const snowflake = document.createElement("div");
+            const delay = Math.random() * 10000;
+            const initialOpacity = Math.random();
+            const duration = Math.random() * 20 + MIN_DURATION;
+
+            snowflake.classList.add("snowflake");
+            snowflake.style.left = `${Math.random() * window.screen.width}px`
+            snowflake.style.animationDelay = `${delay}s`;
+            snowflake.style.opacity = initialOpacity;
+            snowflake.style.animation = `fall ${duration}s linear infinite`;
+
+            body.appendChild(snowflake);
+        }
+
+        
+        for (let index = 0; index < 200; index++){
+            makeSnowflake();
+            
+            // wait(1);
+        }
+
+
+        setTimeout(() => {
+            body.removeChild(snowflake);
+        }, (duration + delay) * 1000 );
+        
+
+        </script> -->
+
+
+        <!-- 231008_게시판용 스크립트 추가 -->
+        <!-- <script type="module">
+
+
+ 
+
+
+            
+            import { initializeApp } from "https://www.gstatic.com/firebasejs/10.4.0/firebase-app.js";
+            import { getAnalytics } from "https://www.gstatic.com/firebasejs/10.4.0/firebase-analytics.js";
+            import { getFirestore } from "https://www.gstatic.com/firebasejs/10.4.0/firebase-firestore.js";
+            import { query, orderBy, collection, getDocs, setDoc, doc, addDoc, Timestamp, deleteDoc } from "https://www.gstatic.com/firebasejs/10.4.0/firebase-firestore.js";
+
+            const firebaseConfig = {
+              apiKey: "AIzaSyDRUEsGTMA9IYESxbLzzLDJOLyDtbupE_g",
+              authDomain: "wedding-invitation-cc8d1.firebaseapp.com",
+              databaseURL: "https://wedding-invitation-cc8d1-default-rtdb.asia-southeast1.firebasedatabase.app",
+              projectId: "wedding-invitation-cc8d1",
+              storageBucket: "wedding-invitation-cc8d1.appspot.com",
+              messagingSenderId: "292211223155",
+              appId: "1:292211223155:web:93a7dc90a2b94b135a9806",
+              measurementId: "G-R8VCHMYMVZ"
+            };
+          
+            // Initialize Firebase
+            const app = initializeApp(firebaseConfig);
+            const db = getFirestore(app);
+            const analytics = getAnalytics(app);
+
+            
+            
+          
+
+            getDocs(query(collection(db,'product'),orderBy("배열기준", "desc"))).then((결과)=>{
+              결과.forEach((doc)=>{
+                console.log(doc.data());
+                var 템플릿 = `    
+                <div class="product">
+                  <div class="thumbnail"><h1>${doc.data().아이콘}</h1></div>
+                  <div class="flex-grow-1 p-4">
+                    <h5 class="name">${doc.data().작성자}</h5>
+                    <p class="message">${doc.data().내용}</p>
+                    <p class="date">${doc.data().작성연도} ${doc.data().작성월} ${doc.data().작성일}</p>
+                    <p class="float-end">ee</p>
+                  </div>
+
+                  <div clss="d-grid">
+                    <button class="btn btn-primary mt-3 delbtn" id='${doc.data().배열기준}_${doc.data().비밀번호}'  >연락처, 계좌번호확인</button>
+
+                  </div>      
+                  
+                </div>`;
+                
+                $('.container-guest-book').append(템플릿);
+              })
+            })
+
+
+
+//  이걸바꿈           // <button class="btn btn-primary mt-3" id='${doc.data().배열기준}_${doc.data().비밀번호}' onclick="delete_button(this.id)" >연락처, 계좌번호확인</button>
+                    
+
+ //이거 성공함.
+//setDoc(doc(db,'product','상품3'), {제목 : '이름'});
+//이것도 성공함.
+//addDoc(collection(db,'product'), {제목 : '이름'});
+// addDoc는 아이디는 넣지 않아도 자동으로 생성된다.                  
+
+
+            $('#send').click(function(){
+            var 저장할거 = { 
+                작성자 : $('#name').val(), 
+                내용 : $('#message').val(),
+                작성연월일 : new Date().getFullYear(),
+                작성월 : new Date().getMonth(),
+                작성일 : new Date().getDate(),
+                작성시분초 : new Date().getHours() + " " + new Date().getMinutes() + " " + new Date().getSeconds(),
+                배열기준 : new Date().getTime(),
+                아이콘 : $('#icon').val(),     
+                비밀번호 : $('#pwd').val()         
+            }
+            setDoc(doc(db,'product',new Date().getTime() + "_" + $('#pwd').val()),저장할거).then((result)=>{
+                console.log(result);
+                Swal.fire({
+                    icon: 'success',
+                    title: '성공적으로 저장되었습니다.',
+                    showConfirmButton: false,
+                    timer: 1500
+                    })
+            }).catch((error)=>{
+                console.log(error);
+            });
+            }
+            )
+          
+            var delbtn = document.getElementsByClassName('delbtn');
+            
+            for(var i = 0; i < delbtn.length; i++)
+            {
+            delbtn[i].addEventListener('click', alert("test"), false);
+            }
+
+            // document.getElementById(doc.data().배열기준+"_"+doc.data().비밀번호).addEventListener("click", delete_button(this.id));   
+            //for each로 각 함수를 만들어야하는가? 
+
+        </script> -->
+
+        <script>
+
+            function delete_button(clicked_id) {
+                deleteDoc(doc(db, 'product', clicked_id));
+                    } 
+
+        </script>
+
+        <!-- Navigation-->
+        <nav class="navbar navbar-expand-lg navbar-light fixed-top py-3" id="mainNav">
+            <div class="container px-4 px-lg-5">
+                <a class="navbar-brand" href="#page-top">초대장</a>
+                <button class="navbar-toggler navbar-toggler-right" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
+                <div class="collapse navbar-collapse" id="navbarResponsive">
+                    <ul class="navbar-nav ms-auto my-2 my-lg-0">
+                        <li class="nav-item"><a class="nav-link" href="#about">인사말</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#portfolio">사진</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#services">오시는길(약도)</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#contact">마음전할곳</a></li> <!-- 230827 추가 -->
+                        <li class="nav-item"><a class="nav-link" href="#guest-book">방명록</a></li> <!-- 230729 추가 -->
+                        <li class="nav-item"><a class="nav-link" href="#location_detail">오시는길(상세)</a></li> <!-- 230827 추가 -->
+                    </ul>
+                </div>
+            </div>
+        </nav>
+        <!-- Masthead-->
+        <header class="masthead_th">
+            <div class="container px-4 px-lg-5 h-100">
+                <div class="row gx-4 gx-lg-5 h-100 align-items-center justify-content-center text-center">
+                    <div class="col-lg-8 align-self-end">
+                        <h1 class="text-black font-weight-bold">태훈 & 유라의 결혼식에 초대합니다♡</h1>
+                        <hr class="divider" />
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12"> <!-- (Todo)크기 조정 필요 -->
+                          <img src="./img/wed_img/LSJ_0251.jpg" alt="..." class="img-fluid">
+                        </div>  
+                    </div>
+                    <div class="col-lg-8 align-self-baseline">
+                        <p class="text-black-75 mb-5">일시 : 24년 1월 20일 토요일, 오후 3시 30분. 장소 : 아펠가모 반포</p>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <!-- About--> 
+        <section class="page-section" style="background-color: rgb(180, 226, 245);" id="about">
+            <div class="container px-4 px-lg-5">
+                <div class="row gx-4 gx-lg-5 justify-content-center">
+                    <div class="col-lg-8 text-center">
+                        <h2 class="text-black mt-0">태훈 & 유라의 결혼식에 초대합니다!</h2>
+                        <hr class="divider divider-light" />
+                        <p class="text-black-75 mb-4">봄의 그대는 벚꽃이었고,
+                            여름의 그대는 바람이었으며</br>
+                            가을의 그대는 하늘이었고</br>
+                            겨울의 그대는 하얀 눈이었다.</br>
+                            </br>
+                            그대는 언제나</br>
+                            행복 그 자체였다.</br>
+                            </br>
+                            사계, 강현욱</br>
+                            </br>
+                            평생을 함께 하고 싶은 사람을 만났습니다.</br>
+                            귀한 걸음 하시어 축복해 주시면 감사하겠습니다.</br>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+        <!--연락처-->
+        <section class="page-section" id="contact">
+    
+    
+            <p class="d-flex justify-content-center">
+                <button class="btn btn-primary" type="button" data-bs-toggle="collapse" data-bs-target="#collapse_Groom_contact" aria-expanded="false" aria-controls="collapse_Groom_contact">
+                    신랑측 연락처
+                </button>
+            </p>
+
+            <div class="d-flex justify-content-center">
+                
+                <div class="collapse" id="collapse_Groom_contact">
+                    <div class="card card-body" style="width: 25rem;">
+                        <div class="container">                      
+                            <div class="row">
+                            <div class="col d-flex align-items-center">박태훈</div>
+                            <div class="col">전화하기 <a href="tel:01029094088"><img src="./img/contact/phone.png" alt="..." class="img-fluid" style="width:30px; height:30px;"></a></div>
+                            <div class="col">문자남기기 <a href="sms:01029094088"><img src="./img/contact/message.png" alt="..." class="img-fluid" style="width:30px; height:30px;"></a></div>
+                            </div>
+                        </div>                                    
+                    </div>
+
+                    <div class="card card-body" style="width: 25rem;">
+                        <div class="container">                      
+                            <div class="row">
+                            <div class="col d-flex align-items-center">박영달</div>
+                            <div class="col">전화하기 <a href="tel:01085009710"><img src="./img/contact/phone.png" alt="..." class="img-fluid" style="width:30px; height:30px;"></a></div>
+                            <div class="col">문자남기기 <a href="sms:01085009710"><img src="./img/contact/message.png" alt="..." class="img-fluid" style="width:30px; height:30px;"></a></div>
+                            </div>
+                        </div>                                    
+                    </div>
+
+                    <div class="card card-body" style="width: 25rem;">
+                        <div class="container">                      
+                            <div class="row">
+                            <div class="col d-flex align-items-center">이혜경</div>
+                            <div class="col">전화하기 <a href="tel:01031514088"><img src="./img/contact/phone.png" alt="..." class="img-fluid" style="width:30px; height:30px;"></a></div>
+                            <div class="col">문자남기기 <a href="sms:01031514088"><img src="./img/contact/message.png" alt="..." class="img-fluid" style="width:30px; height:30px;"></a></div>
+                            </div>
+                        </div>                                    
+                    </div>
+
+                </div>
+            </div>
+
+
+            <p class="d-flex justify-content-center">
+                <button class="btn btn-primary" type="button" data-bs-toggle="collapse" data-bs-target="#collapse_Bride_contact" aria-expanded="false" aria-controls="collapse_Bride_contact">
+                    신부측 연락처
+                </button>
+            </p>
+
+            <div class="d-flex justify-content-center">
+                
+                <div class="collapse" id="collapse_Bride_contact">
+                    <div class="card card-body" style="width: 25rem;">
+                        <div class="container">                      
+                            <div class="row">
+                            <div class="col d-flex align-items-center">김유라</div>
+                            <div class="col">전화하기 <a href="tel:01021075122"><img src="./img/contact/phone.png" alt="..." class="img-fluid" style="width:30px; height:30px;"></a></div>
+                            <div class="col">문자남기기 <a href="sms:01021075122"><img src="./img/contact/message.png" alt="..." class="img-fluid" style="width:30px; height:30px;"></a></div>
+                            </div>
+                        </div>                                    
+                    </div>
+
+                    <div class="card card-body" style="width: 25rem;">
+                        <div class="container">                      
+                            <div class="row">
+                            <div class="col d-flex align-items-center">김덕기</div>
+                            <div class="col">전화하기 <a href="tel:01029445635"><img src="./img/contact/phone.png" alt="..." class="img-fluid" style="width:30px; height:30px;"></a></div>
+                            <div class="col">문자남기기 <a href="sms:01029445635"><img src="./img/contact/message.png" alt="..." class="img-fluid" style="width:30px; height:30px;"></a></div>
+                            </div>
+                        </div>                                    
+                    </div>
+
+                    <div class="card card-body" style="width: 25rem;">
+                        <div class="container">                      
+                            <div class="row">
+                            <div class="col d-flex align-items-center">조성애</div>
+                            <div class="col">전화하기 <a href="tel:01053773812"><img src="./img/contact/phone.png" alt="..." class="img-fluid" style="width:30px; height:30px;"></a></div>
+                            <div class="col">문자남기기 <a href="sms:01053773812"><img src="./img/contact/message.png" alt="..." class="img-fluid" style="width:30px; height:30px;"></a></div>
+                            </div>
+                        </div>                                    
+                    </div>
+
+                </div>
+            </div>
+
+
+
+        <!-- Portfolio-->
+        <div id="portfolio">
+            <div class="container-fluid p-0">
+                <div class="row g-0">
+                    <div class="col-lg-4 col-sm-6">
+                        <a class="portfolio-box" href="./img/wed_img/LSJ_0373.jpg" title="Project Name">
+                            <img class="img-fluid" src="./img/wed_img/LSJ_0373.jpg" alt="..." />
+                            <div class="portfolio-box-caption">
+                                <div class="project-category text-white-50">Wedding</div>
+                                <div class="project-name">Shot1</div>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="col-lg-4 col-sm-6">
+                        <a class="portfolio-box" href="./img/wed_img/LSJ_0615.jpg" title="Project Name">
+                            <img class="img-fluid" src="./img/wed_img/LSJ_0615.jpg" alt="..." />
+                            <div class="portfolio-box-caption">
+                                <div class="project-category text-white-50">Wedding</div>
+                                <div class="project-name">Shot2</div>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="col-lg-4 col-sm-6">
+                        <a class="portfolio-box" href="./img/wed_img/LSJ_0728.jpg" title="Project Name">
+                            <img class="img-fluid" src="./img/wed_img/LSJ_0728.jpg" alt="..." />
+                            <div class="portfolio-box-caption">
+                                <div class="project-category text-white-50">Wedding</div>
+                                <div class="project-name">Shot3</div>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="col-lg-4 col-sm-6">
+                        <a class="portfolio-box" href="./img/wed_img/LSJ_0915.jpg" title="Project Name">
+                            <img class="img-fluid" src="./img/wed_img/LSJ_0915.jpg" alt="..." />
+                            <div class="portfolio-box-caption">
+                                <div class="project-category text-white-50">Wedding</div>
+                                <div class="project-name">Shot4</div>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="col-lg-4 col-sm-6">
+                        <a class="portfolio-box" href="./img/wed_img/LSJ_9205.jpg" title="Project Name">
+                            <img class="img-fluid" src="./img/wed_img/LSJ_9205.jpg" alt="..." />
+                            <div class="portfolio-box-caption">
+                                <div class="project-category text-white-50">Wedding</div>
+                                <div class="project-name">Shot5</div>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+
+        <!-- Services-->
+        <section class="page-section" id="services">
+        <div class="container px-4 px-lg-5">
+                <h2 class="text-center mt-0">오시는 길</h2>
+
+             
+        <!-- 네이버 지도 시작 -->
+        <!-- <div id="map" style="width:100%;height:400px;"></div>   
+             <script type="text/javascript" src="https://oapi.map.naver.com/openapi/v3/maps.js?ncpClientId=dq8jk6ll4q&callback=initMap"></script>
+             <script type="text/javascript">
+
+
+                var HOME_PATH = window.HOME_PATH || '.';
+                var position = new naver.maps.LatLng(37.500753, 127.003254);
+
+                var map = new naver.maps.Map('map', {
+                    center: position,
+                    zoom: 16, //지도의 초기 줌 레벨
+                    minZoom: 7, //지도의 최소 줌 레벨
+                    zoomControl: true, //줌 컨트롤의 표시 여부
+                    ZoomControlOptions: { //줌 컨트롤의 옵션
+                        position: naver.maps.Position.TOP_RIGHT
+                        }
+                });
+
+                var markerOptions = {
+                    position: position.destinationPoint(90, 15),
+                    map: map,
+                    icon: {
+                        url: './img/map/airplane_low2.png',
+                        size: new naver.maps.Size(68, 74),
+                        origin: new naver.maps.Point(0, 0),
+                        anchor: new naver.maps.Point(25, 26)
+                    }
+                };
+
+                var marker = new naver.maps.Marker(markerOptions);
+                // 이 위쪽으로는 마커 넣는 법
+
+
+
+                   map.setOptions("mapTypeControl", true); //지도 유형 컨트롤의 표시 여부
+             </script> -->
+
+
+
+
+        <!-- 네이버 지도 끝 -->
+
+            <div class="row gx-4 gx-lg-5">
+                <div class="col-lg-3 col-md-6 text-center">
+                    <div class="mt-5">
+                        <h3 class="h4 mb-2">대중교통</h3>
+                        <p class="text-muted mb-0">고속터미널역(지하철 3,5,9호선) 5번 출구로 나와 서래공원 방면 횡단보도 건너 직진 후 우측 첫번째 건물</p>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6 text-center">
+                    <div class="mt-5">
+                        <h3 class="h4 mb-2">자가용</h3>
+                        <p class="text-muted mb-0">반포대로 235 입력</p>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6 text-center">
+                    <div class="mt-5">
+                        <h3 class="h4 mb-2">버스</h3>
+                        <p class="text-muted mb-0">서울지방조달청 / 서울성모병원 정류장 하차 후 도보 5분</p>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+        </section>
+
+
+
+
+
+        <!-- Contact-->
+        <section class="page-section" id="contact">
+        마음전할 곳
+
+
+        <p class="d-flex justify-content-center">
+            <button class="btn btn-primary" type="button" data-bs-toggle="collapse" data-bs-target="#collapse_Groom" aria-expanded="false" aria-controls="collapse_Groom">
+                신랑측 마음전할 곳
+            </button>
+        </p>
+        <div class="d-flex justify-content-center">
+            <div class="collapse" id="collapse_Groom">
+                <div class="card card-body" style="width: 25rem;">
+                    신한은행 박태훈<div id="Groom_1">110925085552</div> 
+                    <button type="button" class="btn btn-outline-primary" onclick="copyToClipBoard_Groom_1()">계좌번호 복사</button>
+                    
+
+                    <script>
+                        function copyToClipBoard_Groom_1(){
+                        var content = document.getElementById('Groom_1').innerHTML;
+                    
+                        navigator.clipboard.writeText(content)
+                            .then(() => {
+                            Swal.fire("계좌번호가 복사되었습니다.");
+                        })
+                            .catch(err => {
+                            Swal.fire("오류가 발생하였습니다. 다시 시도해주세요.");
+                        })
+                        }
+                    </script>
+
+                    산업은행 박영달<div id="Groom_2">02041076744810</div> 
+                    <button type="button" class="btn btn-outline-primary" onclick="copyToClipBoard_Groom_2()">계좌번호 복사</button>
+
+                    <script>
+                        function copyToClipBoard_Groom_2(){
+                        var content = document.getElementById('Groom_2').innerHTML;
+                    
+                        navigator.clipboard.writeText(content)
+                            .then(() => {
+                            Swal.fire("계좌번호가 복사되었습니다.");
+                        })
+                            .catch(err => {
+                            Swal.fire("오류가 발생하였습니다. 다시 시도해주세요.");
+                        })
+                        }            
+                    </script>
+
+                    농협 이혜경<div id="Groom_3">89012039070</div>
+                    <button type="button" class="btn btn-outline-primary" onclick="copyToClipBoard_Groom_3()">계좌번호 복사</button>
+
+                    <script>
+                        function copyToClipBoard_Groom_3(){
+                        var content = document.getElementById('Groom_2').innerHTML;
+
+                        navigator.clipboard.writeText(content)
+                            .then(() => {
+                            Swal.fire("계좌번호가 복사되었습니다.");
+                        })
+                            .catch(err => {
+                            Swal.fire("오류가 발생하였습니다. 다시 시도해주세요.");
+                        })
+                        }            
+                    </script>
+
+                </div>
+            </div>
+        </div>
+
+        <p class="d-flex justify-content-center">
+            <button class="btn btn-primary" type="button" data-bs-toggle="collapse" data-bs-target="#collapse_Bride" aria-expanded="false" aria-controls="collapse_Bride">
+            신부측 마음전할 곳
+            </button>
+        </p>
+        <div class="d-flex justify-content-center">
+            <div class="collapse" id="collapse_Bride">
+                <div class="card card-body" style="width: 25rem;">
+                    하나은행 김유라<div id="Bride_1">1111</div>
+                    <button type="button" class="btn btn-outline-primary" onclick="copyToClipBoard_Bride_1()">계좌번호 복사</button>
+
+                    <script>
+                        function copyToClipBoard_Bride_1(){
+                        var content = document.getElementById('Bride_1').innerHTML;
+                    
+                        navigator.clipboard.writeText(content)
+                            .then(() => {
+                            Swal.fire("계좌번호가 복사되었습니다.");
+                        })
+                            .catch(err => {
+                            Swal.fire("오류가 발생하였습니다. 다시 시도해주세요.");
+                        })
+                        }
+                    </script>
+
+                    신한은행 김덕기<div id="Bride_2">110513380310</div>
+                    <button type="button" class="btn btn-outline-primary" onclick="copyToClipBoard_Bride_2()">계좌번호 복사</button>
+
+                    <script>
+                        function copyToClipBoard_Bride_2(){
+                        var content = document.getElementById('Bride_2').innerHTML;
+                    
+                        navigator.clipboard.writeText(content)
+                            .then(() => {
+                            Swal.fire("계좌번호가 복사되었습니다.");
+                        })
+                            .catch(err => {
+                            Swal.fire("오류가 발생하였습니다. 다시 시도해주세요.");
+                        })
+                        }            
+                    </script>
+
+                    농협 조성애<div id="Bride_3">30712551196330</div>
+                    <button type="button" class="btn btn-outline-primary" onclick="copyToClipBoard_Bride_3()">계좌번호 복사</button>
+
+                    <script>
+                        function copyToClipBoard_Bride_3(){
+                        var content = document.getElementById('Bride_3').innerHTML;
+
+                        navigator.clipboard.writeText(content)
+                            .then(() => {
+                            Swal.fire("계좌번호가 복사되었습니다.");
+                        })
+                            .catch(err => {
+                            Swal.fire("오류가 발생하였습니다. 다시 시도해주세요.");
+                        })
+                        }            
+                    </script>
+
+                </div>
+            </div>
+        </div>
+
+
+
+
+
+        </section>
+        <section class="page-section" id="guest-book">
+            <div class="container px-4 px-lg-5">
+                <div class="row gx-4 gx-lg-5 justify-content-center">
+                    <div class="col-lg-8 col-xl-6 text-center">
+                        <h2 class="mt-0">방명록에 글 남겨주셔요!</h2>
+                        <hr class="divider" />
+                        <p class="text-muted mb-5">수정,삭제는 신랑에게 문의주세요 &#x1F647; </p>
+                    </div>
+                </div>
+
+
+
+                <div class="container mt-3 row gx-4 gx-lg-5 justify-content-center mb-5">
+                    <div class="col-lg-6">
+                        <div class="from-floating mb-3">
+                            <select class="form-select" id="icon" aria-label="Default select example">
+                                <option selected>말머리 아이콘을 선택해주세요~</option>
+                                <option value="&#x1F60A;">방긋</option>
+                                <option value="&#x1F60D;">하트</option>
+                                <option value="&#x1F389;">폭죽</option>
+                                <option value="&#x1F44D;">좋아요</option>
+                                <option value="&#x1F44F;">짝짝짝</option>
+                            </select>
+                        </div>
+                        <div class="form-floating mb-3">
+                            <input class="form-control" id="name" type="text" placeholder="성함" />
+                            <label for="name">작성자</label>
+                        </div>
+                        <div class="form-floating mb-3">
+                            <textarea class="form-control mt-2" id="message" placeholder="내용" style="height: 10rem"></textarea>
+                            <label for="message">남기실 말</label>
+                        </div>
+                        <div clss="d-grid">
+                            <button class="btn btn-primary mt-3" id="send">올리기</button>
+                        </div>
+                    </div>
+                </div>    
+
+
+
+            </div>
+
+
+            <div class="container-guest-book mt-3"> <!-- 이 부분이 채워질 부분 -->
+            </div>
+
+
+        </section>
+        
+        <!-- Footer-->
+        <footer class="bg-light py-5">
+            <div class="container px-4 px-lg-5"><div class="small text-center text-muted">Copyright &copy; 태훈</div></div>
+        </footer>
+
+        <!-- Core theme JS-->
+        <script src="js/scripts.js"></script>
+
+    </body>
+</html>

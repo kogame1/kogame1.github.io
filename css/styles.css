@@ -1,5 +1,167 @@
-@charset "UTF-8";
+/* 달력시작 */
+
+html, body {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+*, *:before, *:after {
+  box-sizing: inherit;
+}
+.clearfix:after {
+  content: '';
+  display: block;
+  clear: both;
+  float: none;
+}
+
+/* ======== 231215 모바일에 맞게 크기변경 ======== */
+
+.my-calendar {
+  width: 300px; 
+  margin: 10px;
+  padding: 5px 5px 5px;
+  text-align: center;
+  font-weight: 800;
+  border: 1px solid #ddd;
+  cursor: default;
+}
+.my-calendar .clicked-date {
+  border-radius: 25px;
+  margin-top: 36px;
+  float: left;
+  width: 42%;
+  padding: 46px 0 26px;
+  background: #ddd;
+}
+.my-calendar .calendar-box {
+  float: right;
+  width: 58%;
+  padding-left: 30px;
+}
+
+.clicked-date .cal-day {
+  font-size: 12px;
+}
+.clicked-date .cal-date {
+  font-size: 15px;
+}
+/* 231215 추가 */
+.clicked-date .cal-wedtime {
+  font-size: 12px;
+}
+
+.ctr-box {
+  padding: 0px;
+  margin-bottom: 10px;
+  font-size: 10px;
+}
+.ctr-box .btn-cal {
+  position: relative;
+  float: left;
+  width: 25px;
+  height: 25px;
+  margin-top: 5px;
+  font-size: 16px;
+  cursor: pointer;
+  border: none;
+  background: none;
+}
+.ctr-box .btn-cal:after {
+  content: '<';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  line-height: 5px;
+  font-weight: bold;
+  font-size: 10px;
+}
+.ctr-box .btn-cal.next {
+  float: right;
+}
+.ctr-box .btn-cal.next:after {
+  content: '>';
+}
+
+.cal-table {
+  width: 100%;
+}
+.cal-table th {
+  width: 14.2857%;
+  padding-bottom: 5px;
+  font-size: 16px;
+  font-weight: 900;
+}
+.cal-table td {
+  padding: 1px 0;
+  height: 30px;
+  font-size: 10px;
+  vertical-align: middle;
+}
+.cal-table td.day {
+  position: relative;
+  cursor: pointer;
+}
+.cal-table td.today {
+  background: #ffd255;
+  border-radius: 50%;
+  color: #fff;
+}
+.cal-table td.day-active {
+  background: #ff8585;
+  border-radius: 50%;
+  color: #fff;
+}
+.cal-table td.has-event:after {
+  content: '';
+  display: block;
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  height: 4px;
+  background: #FFC107;
+}
+
+
+/* 달력끝 */
+
+
+
+/* :root{
+--bs-body-font-family: "nanum";
+} */
+
+
+/*@charset "UTF-8";
 /* 230729확인 :root(가상선택자)를 통해서 지정해놓은 페이지. 나는 따로 건드리지 않아도 될듯함. */
+
+/* 231023 눈내리기 추가 */
+
+
+@keyframes fall{
+  from {}
+  to {
+    transform: translateY(350vh);
+    opacity: 1;
+
+  }
+
+}
+
+.snowflake{
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background-color:hsl(91, 95%, 36%);
+  position:absolute;
+  top: -10px;
+  /* animation: fall 10s linear; */
+}
+
 /*!
 * Start Bootstrap - Creative v7.0.7 (https://startbootstrap.com/theme/creative)
 * Copyright 2013-2023 Start Bootstrap
@@ -11,6 +173,7 @@
  * Copyright 2011-2022 Twitter, Inc.
  * Licensed under MIT (https://github.com/twbs/bootstrap/blob/main/LICENSE)
  */
+ /* 여기 bs-primary과 bs-primary-rgb바꿈 중간에 th_ 붙임 --> 다시원복함*/
 :root {
   --bs-blue: #0d6efd;
   --bs-indigo: #6610f2;
@@ -55,10 +218,10 @@
   --bs-black-rgb: 0, 0, 0;
   --bs-body-color-rgb: 33, 37, 41;
   --bs-body-bg-rgb: 255, 255, 255;
-  --bs-font-sans-serif: "Merriweather Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+  --bs-font-sans-serif: nanum, "Merriweather Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
   --bs-font-monospace: SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
   --bs-gradient: linear-gradient(180deg, rgba(255, 255, 255, 0.15), rgba(255, 255, 255, 0));
-  --bs-body-font-family: Merriweather, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica Neue, Arial, Noto Sans, sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol, Noto Color Emoji;
+  --bs-body-font-family: nanum, Merriweather, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica Neue, Arial, Noto Sans, sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol, Noto Color Emoji;
   --bs-body-font-size: 1rem;
   --bs-body-font-weight: 400;
   --bs-body-line-height: 1.5;
@@ -113,10 +276,11 @@ hr {
   opacity: 0.25;
 }
 
+/* 231215 여기 font-family 에 nanum을 추가함. */
 h6, .h6, h5, .h5, h4, .h4, h3, .h3, h2, .h2, h1, .h1 {
   margin-top: 0;
   margin-bottom: 0.5rem;
-  font-family: "Merriweather Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+  font-family: nanum, "Merriweather Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
   font-weight: 500;
   line-height: 1.2;
 }
@@ -381,12 +545,12 @@ select:disabled {
   display: none !important;
 }
 
-button,
+/* button,
 [type=button],
 [type=reset],
 [type=submit] {
-  -webkit-appearance: button;
-}
+   -webkit-appearance: button; 
+} 여기 오류생김 231023  */
 button:not(:disabled),
 [type=button]:not(:disabled),
 [type=reset]:not(:disabled),
@@ -443,7 +607,7 @@ legend + * {
 
 [type=search] {
   outline-offset: -2px;
-  -webkit-appearance: textfield;
+  /* -webkit-appearance: textfield; 여기 오류생김 231023*/
 }
 
 /* rtl:raw:
@@ -464,7 +628,7 @@ legend + * {
 
 ::file-selector-button {
   font: inherit;
-  -webkit-appearance: button;
+  /* -webkit-appearance: button; 여기 오류생김 231023 */
 }
 
 output {
@@ -2770,7 +2934,7 @@ textarea.form-control-lg {
 .btn {
   --bs-btn-padding-x: 0.75rem;
   --bs-btn-padding-y: 0.375rem;
-  --bs-btn-font-family: Merriweather Sans, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica Neue, Arial, Noto Sans, sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol, Noto Color Emoji;
+  --bs-btn-font-family: nanum, Merriweather Sans, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica Neue, Arial, Noto Sans, sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol, Noto Color Emoji;
   --bs-btn-font-size: 1rem;
   --bs-btn-font-weight: 400;
   --bs-btn-line-height: 1.5;
@@ -5543,7 +5707,7 @@ textarea.form-control-lg {
   display: block;
   padding: var(--bs-tooltip-arrow-height);
   margin: var(--bs-tooltip-margin);
-  font-family: "Merriweather", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+  font-family: nanum, "Merriweather", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
   font-style: normal;
   font-weight: 400;
   line-height: 1.5;
@@ -5653,7 +5817,7 @@ textarea.form-control-lg {
   z-index: var(--bs-popover-zindex);
   display: block;
   max-width: var(--bs-popover-max-width);
-  font-family: "Merriweather", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+  font-family: nanum, "Merriweather", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
   font-style: normal;
   font-weight: 400;
   line-height: 1.5;
@@ -10871,13 +11035,13 @@ hr.divider-light {
   transition: background-color 0.2s ease;
 }
 #mainNav .navbar-brand {
-  font-family: "Merriweather Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+  font-family: nanum, "Merriweather Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
   font-weight: 700;
   color: #212529;
 }
 #mainNav .navbar-nav .nav-item .nav-link {
   color: #6c757d;
-  font-family: "Merriweather Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+  font-family: nanum, "Merriweather Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
   font-weight: 700;
   font-size: 0.9rem;
   padding: 0.75rem 0;
@@ -10926,35 +11090,35 @@ hr.divider-light {
     color: #00D8FF;
   }
 }
-
-header.masthead {
+/*   background: linear-gradient(to bottom, rgba(92, 77, 66, 0.8) 0%, rgba(92, 77, 66, 0.8) 100%), url("../assets/img/bg-masthead.jpg"); 백업 */
+header.masthead_th {
   padding-top: 10rem;
   padding-bottom: calc(10rem - 4.5rem);
-  background: linear-gradient(to bottom, rgba(92, 77, 66, 0.8) 0%, rgba(92, 77, 66, 0.8) 100%), url("../assets/img/bg-masthead.jpg");
+  background: rgb(239, 249, 253);
   background-position: center;
   background-repeat: no-repeat;
   background-attachment: scroll;
   background-size: cover;
 }
-header.masthead h1, header.masthead .h1 {
+header.masthead_th h1, header.masthead_th .h1 {
   font-size: 2.25rem;
 }
 @media (min-width: 992px) {
-  header.masthead {
-    height: 100vh;
+  header.masthead_th {
+    height: 300vh;
     min-height: 40rem;
     padding-top: 4.5rem;
     padding-bottom: 0;
   }
-  header.masthead p {
+  header.masthead_th p {
     font-size: 1.15rem;
   }
-  header.masthead h1, header.masthead .h1 {
+  header.masthead_th h1, header.masthead_th .h1 {
     font-size: 3rem;
   }
 }
 @media (min-width: 1200px) {
-  header.masthead h1, header.masthead .h1 {
+  header.masthead_th h1, header.masthead_th .h1 {
     font-size: 3.5rem;
   }
 }
@@ -10983,7 +11147,7 @@ header.masthead h1, header.masthead .h1 {
   text-align: center;
 }
 #portfolio .container-fluid .portfolio-box .portfolio-box-caption .project-category, #portfolio .container-sm .portfolio-box .portfolio-box-caption .project-category, #portfolio .container-md .portfolio-box .portfolio-box-caption .project-category, #portfolio .container-lg .portfolio-box .portfolio-box-caption .project-category, #portfolio .container-xl .portfolio-box .portfolio-box-caption .project-category, #portfolio .container-xxl .portfolio-box .portfolio-box-caption .project-category {
-  font-family: "Merriweather Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+  font-family: nanum, "Merriweather Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
   font-size: 0.85rem;
   font-weight: 600;
   text-transform: uppercase;
@@ -10994,3 +11158,7 @@ header.masthead h1, header.masthead .h1 {
 #portfolio .container-fluid .portfolio-box:hover .portfolio-box-caption, #portfolio .container-sm .portfolio-box:hover .portfolio-box-caption, #portfolio .container-md .portfolio-box:hover .portfolio-box-caption, #portfolio .container-lg .portfolio-box:hover .portfolio-box-caption, #portfolio .container-xl .portfolio-box:hover .portfolio-box-caption, #portfolio .container-xxl .portfolio-box:hover .portfolio-box-caption {
   opacity: 1;
 }
+
+/* :root{
+  --bs-body-font-family: "nanum";
+  } */

@@ -102,8 +102,13 @@
               })
             })
           
-
-
+            
+//             for($i = $start; $i < ($start + $limit); $i++){
+//     if(isset($data[$i])) {
+//         echo $data[$i] ."번 게시글 <br>";
+//     }
+// }
+//데이터 출력
 
 
 
@@ -116,7 +121,7 @@
 
 
 
-            
+
 <?php
 
 include 'lib.php';
