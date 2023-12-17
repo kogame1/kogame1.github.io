@@ -14,7 +14,7 @@
         <meta name="keywords" content="박태훈 청첩장, 김유라 청첩장"/> <!-- 230729 추가 -->
         <title>태훈 & 유라의 결혼식에 초대합니다♡</title>
         <!-- Favicon-->
-        <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
+        <link rel="icon" type="image/x-icon" href="./img/favicon/love.png" />
 
         <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
 
@@ -57,6 +57,10 @@
             font-weight: normal;
         } /* 이후 "nanum"으로 폰트 적용 가능 */
         
+        *
+        {
+        font-family: "nanum" !important;
+        }
         
         body {
             --bs-font-sans-serif:margin:0; padding:0;font-size:14px;line-height:1.6;font-family:"nanum";color:#464646;letter-spacing:0;-webkit-text-size-adjust:none;font-weight: 400;
@@ -90,7 +94,7 @@
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.min.js" integrity="sha384-Rx+T1VzGupg4BHQYs2gCW9It+akI2MM/mndMCy36UVfodzcJcF0GGLxZIzObiEfa" crossorigin="anonymous"></script>
 
 
-        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+        <!-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous"> -->
 
         <link rel="stylesheet" href="main.css">
 
@@ -236,27 +240,33 @@
                 }
                 else{
                     var 저장할거 = { 
-                        작성자 : $('#name').val(), 
-                        내용 : $('#message').val(),
-                        작성연월일 : new Date().getFullYear(),
-                        작성월 : new Date().getMonth(),
+                        작성자 : $('#name').val().replace(/[<]/gi,''), 
+                        내용 : $('#message').val().replace(/[<]/gi,''),
+                        작성연도 : new Date().getFullYear(),
+                        작성월 : new Date().getMonth()+1,
                         작성일 : new Date().getDate(),
                         작성시분초 : new Date().getHours() + " " + new Date().getMinutes() + " " + new Date().getSeconds(),
                         배열기준 : new Date().getTime(),
                         아이콘 : $('#icon').val(),            
                     }
 
-                    setDoc(doc(db,'product',new Date().getTime() + "_" + $('#pwd').val()),저장할거).then((result)=>{
-                        console.log(result);
+                    setDoc(doc(db,'product',new Date().getTime() + "_" + $('#작성자').val()),저장할거).then((result)=>{
                         Swal.fire({
                             icon: 'success',
                             title: '성공적으로 저장되었습니다.',
                             showConfirmButton: false,
-                            timer: 1500
+                            // timer: 1500
                             })
+                        setTimeout(() => window.location.reload(), 1500);
                         }).catch((error)=>{
-                            console.log(error);
+                            Swal.fire({
+                            icon: 'error',
+                            title: '오류가 생겼습니다. 다시 시도해주세요.',
+                            showConfirmButton: false,
+                            });
                         });
+
+                    
                     };
             }
             )
@@ -277,11 +287,12 @@
                 <div class="collapse navbar-collapse" id="navbarResponsive">
                     <ul class="navbar-nav ms-auto my-2 my-lg-0">
                         <li class="nav-item"><a class="nav-link nav-fontsize-th" href="#about">인사말</a></li> 
+                        <li class="nav-item"><a class="nav-link" href="#contact1">연락처</a></li> <!-- 230827 추가 -->
                         <li class="nav-item"><a class="nav-link nav-fontsize-th" href="#portfolio">사진</a></li>
-                        <li class="nav-item"><a class="nav-link" href="#services">오시는길(약도)</a></li>
-                        <li class="nav-item"><a class="nav-link" href="#contact">마음전할곳</a></li> <!-- 230827 추가 -->
+                        <li class="nav-item"><a class="nav-link" href="#location">오시는길</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#contact2">마음전할곳</a></li> <!-- 230827 추가 -->
                         <li class="nav-item"><a class="nav-link" href="#guest-book">방명록</a></li> <!-- 230729 추가 -->
-                        <li class="nav-item"><a class="nav-link" href="#location_detail">오시는길(상세)</a></li> <!-- 230827 추가 -->
+
                     </ul>
                 </div>
             </div>
@@ -299,8 +310,9 @@
                           <img src="./img/wed_img/LSJ_0251.jpg" alt="..." class="img-fluid">
                         </div>  
                     </div>
-                    <div class="col-lg-8 align-self-baseline"> <!-- 글자 크기 조정 필요 -->
-                        <h1><p class="text-black-75 mb-5">일시 : 24년 1월 20일 토요일, 오후 3시 30분. 장소 : 아펠가모 반포</p></h1>
+                    <div class="align-self-baseline"> <!-- 글자 크기 조정 필요 col-lg-8-->
+                        <h2>일시 : 24년 1월 20일 토요일, 오후 3시 30분 </h2>
+                        <h2>장소 : 아펠가모 반포</h2>
                     </div>
                 </div>
             </div>
@@ -335,7 +347,8 @@
 
 
         <!--연락처-->
-        <section class="page-section" id="contact">
+        <section class="page-section"  style="background-color: rgb(239, 249, 253)" id="contact1">
+         <!-- 필요시 padding=5rem 넣기 -->
     
     
             <p class="d-flex justify-content-center">
@@ -346,8 +359,8 @@
 
             <div class="d-flex justify-content-center">
                 
-                <div class="collapse" id="collapse_Groom_contact">
-                    <div class="card card-body" style="width: 25rem;">
+                <div class="container collapse" id="collapse_Groom_contact">
+                    <div class="card card-body" >
                         <div class="container">                      
                             <div class="row">
                                 <h3>
@@ -359,7 +372,7 @@
                         </div>                                    
                     </div>
 
-                    <div class="card card-body" style="width: 25rem;">
+                    <div class="card card-body" >
                         <div class="container">                      
                             <div class="row">
                                 <h3>
@@ -371,7 +384,7 @@
                         </div>                                    
                     </div>
 
-                    <div class="card card-body" style="width: 25rem;">
+                    <div class="card card-body" >
                         <div class="container">                      
                             <div class="row">
                                 <h3>
@@ -398,8 +411,8 @@
 
             <div class="d-flex justify-content-center">
                 
-                <div class="collapse" id="collapse_Bride_contact">
-                    <div class="card card-body" style="width: 25rem;">
+                <div class="container collapse" id="collapse_Bride_contact">
+                    <div class="card card-body">
                         <div class="container">                      
                             <div class="row">
                                 <h3>
@@ -411,7 +424,7 @@
                         </div>                                    
                     </div>
 
-                    <div class="card card-body" style="width: 25rem;">
+                    <div class="card card-body" >
                         <div class="container">                      
                             <div class="row">
                                 <h3>
@@ -423,7 +436,7 @@
                         </div>                                    
                     </div>
 
-                    <div class="card card-body" style="width: 25rem;">
+                    <div class="card card-body" >
                         <div class="container">                      
                             <div class="row">
                                 <h3>
@@ -440,61 +453,66 @@
 
         <br>
 
+        </section>
+
+        <section class="page-section" style="background-color: rgb(180, 226, 245)" id="photo">
         <!-- Portfolio-->
         <div id="portfolio">
             <div class="container-fluid p-0">
                 <div class="row g-0">
                     <div class="col-lg-4 col-sm-6">
-                        <a class="portfolio-box" href="./img/wed_img/LSJ_0373.jpg" title="Project Name">
+                        <a class="portfolio-box" href="./img/wed_img/LSJ_0373.jpg" title="웨딩사진 1 / 5">
                             <img class="img-fluid" src="./img/wed_img/thumbnail/thumbnail_LSJ_0373.jpg" alt="..." />
                             <div class="portfolio-box-caption">
-                                <div class="project-category text-white-50">Wedding</div>
-                                <div class="project-name">Shot1</div>
+                                <div class="project-category text-white-50">웨딩사진</div>
+                                <div class="project-name">1 / 5</div>
                             </div>
                         </a>
                     </div>
                     <div class="col-lg-4 col-sm-6">
-                        <a class="portfolio-box" href="./img/wed_img/LSJ_0615.jpg" title="Project Name">
-                            <img class="img-fluid" src="./img/wed_img/LSJ_0615.jpg" alt="..." />
+                        <a class="portfolio-box" href="./img/wed_img/LSJ_0615.jpg" title="웨딩사진 2 / 5">
+                            <img class="img-fluid" src="./img/wed_img/thumbnail/thumbnail_LSJ_0615.jpg" alt="..." />
                             <div class="portfolio-box-caption">
-                                <div class="project-category text-white-50">Wedding</div>
-                                <div class="project-name">Shot2</div>
+                                <div class="project-category text-white-50">웨딩사진</div>
+                                <div class="project-name">2 / 5</div>
                             </div>
                         </a>
                     </div>
                     <div class="col-lg-4 col-sm-6">
-                        <a class="portfolio-box" href="./img/wed_img/LSJ_0728.jpg" title="Project Name">
-                            <img class="img-fluid" src="./img/wed_img/LSJ_0728.jpg" alt="..." />
+                        <a class="portfolio-box" href="./img/wed_img/LSJ_0728.jpg" title="웨딩사진 3 / 5">
+                            <img class="img-fluid" src="./img/wed_img/thumbnail/thumbnail_LSJ_0728.jpg" alt="..." />
                             <div class="portfolio-box-caption">
-                                <div class="project-category text-white-50">Wedding</div>
-                                <div class="project-name">Shot3</div>
+                                <div class="project-category text-white-50">웨딩사진</div>
+                                <div class="project-name">3 / 5</div>
                             </div>
                         </a>
                     </div>
                     <div class="col-lg-4 col-sm-6">
-                        <a class="portfolio-box" href="./img/wed_img/LSJ_0915.jpg" title="Project Name">
-                            <img class="img-fluid" src="./img/wed_img/LSJ_0915.jpg" alt="..." />
+                        <a class="portfolio-box" href="./img/wed_img/LSJ_0915.jpg" title="웨딩사진 4 / 5">
+                            <img class="img-fluid" src="./img/wed_img/thumbnail/thumbnail_LSJ_0915.jpg" alt="..." />
                             <div class="portfolio-box-caption">
-                                <div class="project-category text-white-50">Wedding</div>
-                                <div class="project-name">Shot4</div>
+                                <div class="project-category text-white-50">웨딩사진</div>
+                                <div class="project-name">4 / 5</div>
                             </div>
                         </a>
                     </div>
                     <div class="col-lg-4 col-sm-6">
-                        <a class="portfolio-box" href="./img/wed_img/LSJ_9205.jpg" title="Project Name">
-                            <img class="img-fluid" src="./img/wed_img/LSJ_9205.jpg" alt="..." />
+                        <a class="portfolio-box" href="./img/wed_img/LSJ_9205.jpg" title="웨딩사진 5 / 5">
+                            <img class="img-fluid" src="./img/wed_img/thumbnail/thumbnail_LSJ_9205.jpg" alt="..." />
                             <div class="portfolio-box-caption">
-                                <div class="project-category text-white-50">Wedding</div>
-                                <div class="project-name">Shot5</div>
+                                <div class="project-category text-white-50">웨딩사진</div>
+                                <div class="project-name">5 / 5</div>
                             </div>
                         </a>
                     </div>
                 </div>
             </div>
         </div>
-
+   
 
         <!-- 달력 -->
+        <br>
+        <br>
         <div class="container d-flex justify-content-center">
             <div class="my-calendar clearfix">
               <div class="clicked-date">
@@ -535,24 +553,35 @@
           const init = {
             monList: ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'],
             dayList: ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'],
-            today: new Date(),
+            today: new Date('2024-01-20 15:30'),
             // 231215추가(아래두줄)
             weddate: new Date('2024-01-20 15:30'),
+            
+
             // wedtime: getHours(new Date),
             // 231215 추가(위에두줄)
-            monForChange: new Date().getMonth(),
-            activeDate: new Date(),
+
+            // monForChange: new Date().getMonth(),
+            // activeDate: new Date(),
+            // getFirstDay: (yy, mm) => new Date(yy, mm, 1),
+            // getLastDay: (yy, mm) => new Date(yy, mm + 1, 0),
+
+            monForChange: new Date('2024-01-20 15:30').getMonth(),
+            activeDate: new Date('2024-01-20 15:30'),
+            // getFirstDay: (yy, mm) => new Date(2024, 0, 1),
+            // getLastDay: (yy, mm) => new Date(2024, 0+ 1, 0),
             getFirstDay: (yy, mm) => new Date(yy, mm, 1),
-            getLastDay: (yy, mm) => new Date(yy, mm + 1, 0),
+            getLastDay: (yy, mm) => new Date(yy, mm+ 1, 0),
+
             nextMonth: function () {
-              let d = new Date();
+              let d = new Date('2024-01-20 15:30');
               d.setDate(1);
               d.setMonth(++this.monForChange);
               this.activeDate = d;
               return d;
             },
             prevMonth: function () {
-              let d = new Date();
+              let d = new Date('2024-01-20 15:30');
               d.setDate(1);
               d.setMonth(--this.monForChange);
               this.activeDate = d;
@@ -575,10 +604,10 @@
           
 
           function loadDate (date, dayIn, wedtime, wedminutes) {
-            document.querySelector('.cal-date').textContent = date; // 여기에 월 추가하기
+            document.querySelector('.cal-date').textContent = '1 / ' + date; // 여기에 월 추가하기
             document.querySelector('.cal-day').textContent = init.dayList[dayIn];
             // 231215 추가
-            document.querySelector('.cal-wedtime').textContent = wedtime + ':' + wedminutes;
+            document.querySelector('.cal-wedtime').textContent = wedtime + ' : ' + wedminutes;
           }
           
 
@@ -653,10 +682,10 @@
         </script>
 
         <!-- 달력 끝 -->
+        </section>
 
-
-        <!-- Services-->
-        <section class="page-section" id="services">
+        <!-- location-->
+        <section class="page-section" style="background-color: rgb(239, 249, 253)" id="location">
         <div class="container px-4 px-lg-5">
                 <h2 class="text-center mt-0">오시는 길</h2>
 
@@ -707,7 +736,7 @@
         <!-- 네이버 지도 끝 -->
 
             <div class="row gx-4 gx-lg-5">
-                <div class="col-lg-3 col-md-6 text-center">
+                <div class="col-lg-4 col-md-6 text-center">
                     <div class="mt-5">
                         <h3 class="h4 mb-2">대중교통</h3>
                         <h4>
@@ -715,7 +744,7 @@
                         </h4>
                     </div>
                 </div>
-                <div class="col-lg-3 col-md-6 text-center">
+                <div class="col-lg-4 col-md-6 text-center">
                     <div class="mt-5">
                         <h3 class="h4 mb-2">자가용</h3>
                         <h4>
@@ -723,7 +752,7 @@
                         </h4>
                     </div>
                 </div>
-                <div class="col-lg-3 col-md-6 text-center">
+                <div class="col-lg-4 col-md-6 text-center">
                     <div class="mt-5">
                         <h3 class="h4 mb-2">버스</h3>
                         <h4>
@@ -740,8 +769,8 @@
 
 
 
-        <!-- Contact-->
-        <section class="page-section" id="contact">
+        <!-- Contact2-->
+        <section class="page-section" style="background-color: rgb(180, 226, 245)" id="contact2">
 
 
 
@@ -751,12 +780,13 @@
             </button>
         </p>
         <div class="d-flex justify-content-center">
-            <div class="collapse" id="collapse_Groom">
-                <div class="card card-body" style="width: 25rem;">
-                    <h3>
-                    신한은행 박태훈<div id="Groom_1">110925085552</div>
-                    <button type="button" class="btn btn-outline-primary" onclick="copyToClipBoard_Groom_1()">계좌번호 복사</button>
+            <div class="container collapse" id="collapse_Groom">
+                <div class="card card-body">
+                    <h3 class="d-flex justify-content-center">
+                    박태훈 신한은행 <div class="" id="Groom_1">110925085552</div>
                     </h3> 
+                    <button type="button" class="btn btn-outline-primary justify-content-center" onclick="copyToClipBoard_Groom_1()" style="font-size : 20px">계좌번호 복사</button>
+                    
                     
 
                     <script>
@@ -773,10 +803,11 @@
                         }
                     </script>
 
-                    <h3>
+                    <h3 class="d-flex justify-content-center">
                     산업은행 박영달<div id="Groom_2">02041076744810</div> 
-                    <button type="button" class="btn btn-outline-primary" onclick="copyToClipBoard_Groom_2()">계좌번호 복사</button>
                     </h3>
+                    <button type="button" class="btn btn-outline-primary justify-content-center" onclick="copyToClipBoard_Groom_2()" style="font-size : 20px">계좌번호 복사</button>
+                    
 
                     <script>
                         function copyToClipBoard_Groom_2(){
@@ -792,10 +823,11 @@
                         }            
                     </script>
 
-                    <h3>
+                    <h3 class="d-flex justify-content-center">
                     농협 이혜경<div id="Groom_3">89012039070</div>
-                    <button type="button" class="btn btn-outline-primary" onclick="copyToClipBoard_Groom_3()">계좌번호 복사</button>
                     </h3>
+                    <button type="button" class="btn btn-outline-primary justify-content-center" onclick="copyToClipBoard_Groom_3()" style="font-size : 20px">계좌번호 복사</button>
+                    
 
                     <script>
                         function copyToClipBoard_Groom_3(){
@@ -827,12 +859,13 @@
             </button>
         </p>
         <div class="d-flex justify-content-center">
-            <div class="collapse" id="collapse_Bride">
-                <div class="card card-body" style="width: 25rem;">
-                    <h3>
+            <div class="container collapse" id="collapse_Bride">
+                <div class="card card-body" >
+                    <h3 class="d-flex justify-content-center">
                     하나은행 김유라<div id="Bride_1">16691002251705</div>
-                    <button type="button" class="btn btn-outline-primary" onclick="copyToClipBoard_Bride_1()">계좌번호 복사</button>
                     </h3>
+                    <button type="button" class="btn btn-outline-primary justify-content-center" onclick="copyToClipBoard_Bride_1()" style="font-size : 20px">계좌번호 복사</button>
+                    
 
                     <script>
                         function copyToClipBoard_Bride_1(){
@@ -848,10 +881,11 @@
                         }
                     </script>
 
-                    <h3>
+                    <h3 class="d-flex justify-content-center">
                     신한은행 김덕기<div id="Bride_2">110513380310</div>
-                    <button type="button" class="btn btn-outline-primary" onclick="copyToClipBoard_Bride_2()">계좌번호 복사</button>
                     </h3>
+                    <button type="button" class="btn btn-outline-primary justify-content-center" onclick="copyToClipBoard_Bride_2()" style="font-size : 20px">계좌번호 복사</button>
+                    
 
                     <script>
                         function copyToClipBoard_Bride_2(){
@@ -867,10 +901,11 @@
                         }            
                     </script>
 
-                    <h3>
+                    <h3 class="d-flex justify-content-center">
                     농협 조성애<div id="Bride_3">30712551196330</div>
-                    <button type="button" class="btn btn-outline-primary" onclick="copyToClipBoard_Bride_3()">계좌번호 복사</button>
                     </h3>
+                    <button type="button" class="btn btn-outline-primary justify-content-center" onclick="copyToClipBoard_Bride_3()" style="font-size : 20px">계좌번호 복사</button>
+                    
 
 
                     <script>
@@ -896,7 +931,7 @@
 
 
         </section>
-        <section class="page-section" id="guest-book">
+        <section class="page-section"  style="background-color: rgb(239, 249, 253)" id="guest-book">
             <div class="container px-4 px-lg-5">
                 <div class="row gx-4 gx-lg-5 justify-content-center">
                     <div class="col-lg-8 col-xl-6 text-center">
@@ -951,7 +986,7 @@
         
         <!-- Footer-->
         <footer class="bg-light py-5">
-            <div class="container px-4 px-lg-5"><div class="small text-center text-muted">Copyright &copy; 태훈</div></div>
+            <div class="container px-4 px-lg-5"><h2><div class="small text-center text-muted">본 페이지는 모바일에 최적화되어있습니다 &#x1F490; </div></h2></div>
         </footer>
 
         <!-- Core theme JS-->
