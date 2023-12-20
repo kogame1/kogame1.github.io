@@ -42,7 +42,7 @@ html, body {
 /* ======== 231215 모바일에 맞게 크기변경 ======== */
 
 .my-calendar {
-  width: 300px; 
+  width: 320px; 
   margin: 10px;
   padding: 5px 5px 5px;
   text-align: center;
@@ -63,18 +63,18 @@ html, body {
 .my-calendar .calendar-box {
   float: right;
   width: 58%;
-  padding-left: 30px;
+  padding-left: 10px;
 }
 
 .clicked-date .cal-day {
-  font-size: 17px;
+  font-size: 15px;
 }
 .clicked-date .cal-date {
-  font-size: 20px;
+  font-size: 17px;
 }
 /* 231215 추가 */
 .clicked-date .cal-wedtime {
-  font-size: 20px;
+  font-size: 17px;
 }
 
 .ctr-box {

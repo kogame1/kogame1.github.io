@@ -2,7 +2,6 @@
 <!-- 연습용 -->
 
 
-<!-- 1. title 폰트사이즈 변경 -->
 
 
 <html lang="ko"> <!-- 230729 스크린 리더를 위해 lang="ko"로 변경 -->
@@ -52,19 +51,40 @@
         <style type="text/css">
 
         @font-face { /* 네이버나눔 또박또박 폰트 적용 */
-            font-family: 'nanum';
-            src: url("font/naver_nanum_chul_pil.ttf") format("truetype");
+            font-family: 'NanumSquareLight';
+            font-family: 'NanumSquare';
+            font-family: 'NanumSquareBold';
+            font-family: 'NanumSquareExtraBold';
+            font-family: 'NanumSquareAcb';
+            font-family: 'NanumSquareAceb';
+            font-family: 'NanumSquareAcl';
+            font-family: 'NanumSquareAcr';
+            src: url("font/NanumSquare_acB.ttf") format("truetype");
             font-weight: normal;
         } /* 이후 "nanum"으로 폰트 적용 가능 */
         
         *
         {
-        font-family: "nanum" !important;
+            font-family: 'NanumSquareLight' !important;
+            font-family: 'NanumSquare' !important;
+            font-family: 'NanumSquareBold' !important;
+            font-family: 'NanumSquareExtraBold' !important;
+            font-family: 'NanumSquareAcb' !important;
+            font-family: 'NanumSquareAceb' !important;
+            font-family: 'NanumSquareAcl' !important;
+            font-family: 'NanumSquareAcr' !important;
         }
         
         body {
             --bs-font-sans-serif:margin:0; padding:0;font-size:14px;line-height:1.6;font-family:"nanum";color:#464646;letter-spacing:0;-webkit-text-size-adjust:none;font-weight: 400;
-            font-family: 'nanum';
+            font-family: 'NanumSquareLight';
+            font-family: 'NanumSquare';
+            font-family: 'NanumSquareBold';
+            font-family: 'NanumSquareExtraBold';
+            font-family: 'NanumSquareAcb';
+            font-family: 'NanumSquareAceb';
+            font-family: 'NanumSquareAcl';
+            font-family: 'NanumSquareAcr';
         }
     
         /* 231215 이유는 모르겠지만 기본 font변경이 안되어서 부트스트랩 폰트 변경 및 h1,h2 태그 등을 이용하여 변경함 */
@@ -338,11 +358,11 @@
                             </br>
                             </p>
                         </h5>
-                        <h4>
+                        <h5>
                             평생을 함께 하고 싶은 사람을 만났습니다.</br>
                             귀한 걸음 하시어 축복해 주시면 감사하겠습니다.</br>
                             
-                        </h4>
+                        </h5>
                     </div>
                 </div>
             </div>
@@ -751,7 +771,7 @@
                     <div class="mt-5">
                         <h3 class="fw-bold  mb-2">대중교통</h3>
                         <h5>
-                            <p class="mb-0">고속터미널역 지하철 <b style="color: #FF7E00">3</b>,<b style="color: #21610B">7</b>,<b style="color: #5F4C0B;">9</b>호선 <b class="fw-bold">5번 출구</b>로 나와 서래공원 방면 횡단보도 건너 직진 후 우측 첫번째 건물</p>
+                            <p class="mb-0">고속터미널역 지하철 <b style="color: #FF7E00">3</b>,<b style="color: #21610B">7</b>,<b style="color: #5F4C0B;">9</b>호선 <b class="text-decoration-underline">5번 출구</b>로 나와 서래공원 방면 횡단보도 건너 직진 후 우측 첫번째 건물</p>
                         </h5>
                     </div>
                 </div>
