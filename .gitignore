@@ -11,7 +11,7 @@ firebase-debug.*.log*
 .firebase/
 
 # Firebase config
-apikey.js
+# apikey.js 이것도 필요해서 우선 주석처리함(241230)
 
 # Uncomment this if you'd like others to create their own Firebase project.
 # For a team working on the same Firebase project(s), it is recommended to leave

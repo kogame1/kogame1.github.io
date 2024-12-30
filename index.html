@@ -1,26 +1,51 @@
 <!DOCTYPE html>
-<!-- 연습용 -->
-
-
-
 
 <html lang="ko"> <!-- 230729 스크린 리더를 위해 lang="ko"로 변경 -->
     <head>
         <meta charset="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
-        <meta name="description" content="태훈 & 유라의 결혼식 모바일청첩장" />
+        <meta name="description" content="태훈 & 유라의 결혼식 모바일청첩장" /> <!-- 일부 소셜 미디어는 description 태그의 내용을 자동으로 불러와 공유 시 사용. -->
         <meta name="author" content="박태훈" />
         <meta name="keywords" content="박태훈 청첩장, 김유라 청첩장"/> <!-- 230729 추가 -->
         <title>태훈 & 유라의 결혼식에 초대합니다♡</title>
         <!-- Favicon-->
-        <link rel="icon" type="image/x-icon" href="./img/favicon/love.png" />
+        <link rel="icon" href="./img/favicon/love.png" /> <!--241227 명확히 함-->
 
         <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
 
 
-        <link href="css/styles.css" rel="stylesheet" />
-        <link href="css/styles_th.css" rel="stylesheet" />
 
+        <!-- SimpleLightbox plugin CSS, JS (사진창 열릴 때 예쁘게보이는 플러그인)-->
+        <link href="https://cdnjs.cloudflare.com/ajax/libs/SimpleLightbox/2.1.0/simpleLightbox.min.css" rel="stylesheet" />      
+        <script defer src="https://cdnjs.cloudflare.com/ajax/libs/SimpleLightbox/2.1.0/simpleLightbox.min.js"></script>
+
+        <!-- Firebase API Key 설정  -->
+        <script type="module" src="js/firebase_and_guest_book.js"></script>
+
+        <link href="css/styles.css" rel="stylesheet" />
+        <link rel="stylesheet" href="css/typography.css">
+
+
+
+        <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.min.js" integrity="sha384-Rx+T1VzGupg4BHQYs2gCW9It+akI2MM/mndMCy36UVfodzcJcF0GGLxZIzObiEfa" crossorigin="anonymous"></script>
+
+
+
+        <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+
+
+        <script defer src="https://oapi.map.naver.com/openapi/v3/maps.js?ncpClientId=dq8jk6ll4q&callback=initMap"></script>
+        <script defer src="js/map-init.js"></script>
+        <script defer src="js/calendar.js"></script>
+        <script defer src="js/copy-to-clipboard.js"></script>
+        <script defer src="js/scripts.js"></script>
+    </head>
+    
+
+
+    <body id="page-top">
 
         <div id="load">
             <img src="./img/loading/Winter.gif" alt="loading">
@@ -33,264 +58,6 @@
                 // $(load > img ).delay('3000');
               loading_page.style.display = 'none';
             }
-          </script>
-
-
-
-        <!-- Bootstrap Icons-->
-        <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css" rel="stylesheet" />
-        <!-- Google fonts-->
-        <link href="https://fonts.googleapis.com/css?family=Merriweather+Sans:400,700" rel="stylesheet" />
-        <link href="https://fonts.googleapis.com/css?family=Merriweather:400,300,300italic,400italic,700,700italic" rel="stylesheet" type="text/css" /> <!-- 230729 HTML5부터는 type="test/css" 기입 필요하지않음. 그렇지만 이거는 style 태그안의 것이 아니라서 잘 모르겠음.-->
-        <!-- SimpleLightbox plugin CSS-->
-        <link href="https://cdnjs.cloudflare.com/ajax/libs/SimpleLightbox/2.1.0/simpleLightbox.min.css" rel="stylesheet" /> <!-- 230729 사진창 열릴 때 예쁘게보이는 플러그인 -->
-        <!-- SimpleLightbox plugin JS-->
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/SimpleLightbox/2.1.0/simpleLightbox.min.js"></script>
-        <!-- Core theme CSS (includes Bootstrap)-->
-
-        <!-- API Key -->
-        <script type="text/javascript" src="apikey.js">
-        const FBConfig = config.firebaseConfig;
-        </script>
-
-
-        <style type="text/css">
-
-        @font-face { /* 네이버나눔 또박또박 폰트 적용 */
-            font-family: 'NanumSquareLight';
-            font-family: 'NanumSquare';
-            font-family: 'NanumSquareBold';
-            font-family: 'NanumSquareExtraBold';
-            font-family: 'NanumSquareAcb';
-            font-family: 'NanumSquareAceb';
-            font-family: 'NanumSquareAcl';
-            font-family: 'NanumSquareAcr';
-            src: url("font/NanumSquare_acB.ttf") format("truetype");
-            font-weight: normal;
-        } /* 이후 "nanum"으로 폰트 적용 가능 */
-        
-        *
-        {
-            font-family: 'NanumSquareLight' !important;
-            font-family: 'NanumSquare' !important;
-            font-family: 'NanumSquareBold' !important;
-            font-family: 'NanumSquareExtraBold' !important;
-            font-family: 'NanumSquareAcb' !important;
-            font-family: 'NanumSquareAceb' !important;
-            font-family: 'NanumSquareAcl' !important;
-            font-family: 'NanumSquareAcr' !important;
-        }
-        
-        body {
-            --bs-font-sans-serif:margin:0; padding:0;font-size:14px;line-height:1.6;font-family:"nanum";color:#464646;letter-spacing:0;-webkit-text-size-adjust:none;font-weight: 400;
-            font-family: 'NanumSquareLight';
-            font-family: 'NanumSquare';
-            font-family: 'NanumSquareBold';
-            font-family: 'NanumSquareExtraBold';
-            font-family: 'NanumSquareAcb';
-            font-family: 'NanumSquareAceb';
-            font-family: 'NanumSquareAcl';
-            font-family: 'NanumSquareAcr';
-        }
-    
-        /* 231215 이유는 모르겠지만 기본 font변경이 안되어서 부트스트랩 폰트 변경 및 h1,h2 태그 등을 이용하여 변경함 */
-
-        /* .nav-fontsize-th{
-            font-size: 1rem!important;
-        } */
-        </style>
-
-        <!-- 231008_게시판용 내용 추가 -->
-
-        <!-- update the version number as needed -->
-        <!-- <script defer src="/__/firebase/10.3.1/firebase-app-compat.js"></script> -->
-        <!-- include only the Firebase features as you need -->
-        <!-- <script defer src="/__/firebase/10.3.1/firebase-firestore-compat.js"></script> -->
-
-        <!-- 
-        initialize the SDK after all desired features are loaded, set useEmulator to false
-        to avoid connecting the SDK to running emulators.
-        -->
-        <!-- <script defer src="/__/firebase/init.js?useEmulator=true"></script> -->
-
-
-
-
-        <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.min.js" integrity="sha384-Rx+T1VzGupg4BHQYs2gCW9It+akI2MM/mndMCy36UVfodzcJcF0GGLxZIzObiEfa" crossorigin="anonymous"></script>
-
-
-        <!-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous"> -->
-
-        <link rel="stylesheet" href="main.css">
-
-        <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-
-
-        <!-- <style>
-        body{font-family: 'nanum';}
-        </style> -->
-    </head>
-    
-
-
-    <body id="page-top">
-    
-
-         
-        
-        <!-- 눈 내리기 만들기. css는 별도폴더에 넣음 -->
-        <!-- <script>
-
-        const body = document.querySelector("body");
-        
-        const MIN_DURATION = 40;
-        
-        function wait(sec) {
-            let start = Date.now(), now = start;
-            while (now - start < sec * 1000) {
-                now = Date.now();
-            }
-        }
-
-
-        function makeSnowflake() {
-            const snowflake = document.createElement("div");
-            const delay = Math.random() * 10000;
-            const initialOpacity = Math.random();
-            const duration = Math.random() * 20 + MIN_DURATION;
-
-            snowflake.classList.add("snowflake");
-            snowflake.style.left = `${Math.random() * window.screen.width}px`
-            snowflake.style.animationDelay = `${delay}s`;
-            snowflake.style.opacity = initialOpacity;
-            snowflake.style.animation = `fall ${duration}s linear infinite`;
-
-            body.appendChild(snowflake);
-        }
-
-        
-        for (let index = 0; index < 200; index++){
-            makeSnowflake();
-            
-            // wait(1);
-        }
-
-
-        setTimeout(() => {
-            body.removeChild(snowflake);
-        }, (duration + delay) * 1000 );
-        
-
-        </script> -->
-
-
-        <!-- 231008_게시판용 스크립트 추가 -->
-        <script type="module">
-
-
- 
-
-
-            
-            import { initializeApp } from "https://www.gstatic.com/firebasejs/10.4.0/firebase-app.js";
-            import { getAnalytics } from "https://www.gstatic.com/firebasejs/10.4.0/firebase-analytics.js";
-            import { getFirestore } from "https://www.gstatic.com/firebasejs/10.4.0/firebase-firestore.js";
-            import { query, orderBy, collection, getDocs, setDoc, doc, addDoc, Timestamp, deleteDoc } from "https://www.gstatic.com/firebasejs/10.4.0/firebase-firestore.js";
-
-          
-            // Initialize Firebase
-            const app = initializeApp(firebaseConfig);
-            const db = getFirestore(app);
-            const analytics = getAnalytics(app);
-
-            
-            
-          
-
-            getDocs(query(collection(db,'product'),orderBy("배열기준", "desc"))).then((결과)=>{
-              결과.forEach((doc)=>{
-                console.log(doc.data());
-                var 템플릿 = `    
-                <div class="product">
-                    <div class="col-2 d-flex align-items-center justify-content-center">
-                        <div class="thumbnail"><h1>${doc.data().아이콘}</h1></div>
-                    </div>
-                    <div class="col-10 flex-grow-1 p-4">
-                        <h4 class="name d-flex align-items-center">${doc.data().작성자}</h6>
-                        <h4 class="message d-flex align-items-center">${doc.data().내용}</h4>
-                        <h6 class="date d-flex align-items-center">${doc.data().작성연도} ${doc.data().작성월} ${doc.data().작성일}</h6>
-                    </div>                  
-                </div>`;
-                
-                $('.container-guest-book').append(템플릿);
-              })
-            })
-                
-
-
-            $('#send').click(function(){
-                if ($('#icon').val()=='말머리 아이콘을 선택해주세요~'){
-                    
-                    Swal.fire({
-                        icon: 'error',
-                        title: '말머리를 선택해주세요.',
-                        showConfirmButton: false,
-                        });
-                }
-                else if($('#name').val()==''){
-
-                    Swal.fire({
-                        icon: 'error',
-                        title: '작성자를 입력해주세요.',
-                        showConfirmButton: false,
-                        });
-                }
-                else if($('#message').val()==''){
-
-                    Swal.fire({
-                        icon: 'error',
-                        title: '남기실 말을 입력해주세요.',
-                        showConfirmButton: false,
-                        });
-                }
-                else{
-                    var 저장할거 = { 
-                        작성자 : $('#name').val().replace(/[<]/gi,''), 
-                        내용 : $('#message').val().replace(/[<]/gi,''),
-                        작성연도 : new Date().getFullYear(),
-                        작성월 : new Date().getMonth()+1,
-                        작성일 : new Date().getDate(),
-                        작성시분초 : new Date().getHours() + " " + new Date().getMinutes() + " " + new Date().getSeconds(),
-                        배열기준 : new Date().getTime(),
-                        아이콘 : $('#icon').val(),            
-                    }
-
-                    setDoc(doc(db,'product',new Date().getTime() + "_" + $('#작성자').val()),저장할거).then((result)=>{
-                        Swal.fire({
-                            icon: 'success',
-                            title: '성공적으로 저장되었습니다.',
-                            showConfirmButton: false,
-                            // timer: 1500
-                            })
-                        setTimeout(() => window.location.reload(), 1500);
-                        }).catch((error)=>{
-                            Swal.fire({
-                            icon: 'error',
-                            title: '오류가 생겼습니다. 다시 시도해주세요.',
-                            showConfirmButton: false,
-                            });
-                        });
-
-                    
-                    };
-            }
-            )
-
-            
-
-
-
         </script>
 
 
@@ -369,33 +136,6 @@
         <section class="page-section"  style="background-color: rgb(36 205 243 / 7%)" id="contact1">
          <!-- 필요시 padding=5rem 넣기 -->
         
-
-        <!-- <div class="row">
-            <div class="col-2">
-                &nbsp;    
-            </div>
-            <div class="col-8 text-start">
-                <h6>
-    &nbsp;&nbsp;&nbsp;박영달 · 이혜경<span class="text-muted">의 아들</span><span style="padding-right: 5px"></span>태훈</h6>    
-            </div>
-            <div class="col-2">
-                &nbsp;    
-            </div>                          
-        </div>
-
-        
-
-        <div class="row">
-            <div class="col-2">
-                &nbsp;    
-            </div>
-            <div class="col-8 text-start">
-                <h6>&nbsp;&nbsp;&nbsp;김덕기 · 조성애<span class="text-muted">의<span style="padding-right: 10px"></span>딸<span style="padding-right: 13px"></span></span>유라</h6>     
-            </div>
-            <div class="col-2">
-                &nbsp;    
-            </div>                          
-        </div> -->
 
         <div class="row">
             <div class="d-flex justify-content-center">
@@ -613,142 +353,10 @@
               </div>
             </div>
           </div>
-        
-          <script>
-
-
-          const init = {
-            monList: ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'],
-            dayList: ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'],
-            today: new Date('2024-01-20 15:30'),
-            // 231215추가(아래두줄)
-            weddate: new Date('2024-01-20 15:30'),
-            
-
-            // wedtime: getHours(new Date),
-            // 231215 추가(위에두줄)
-
-            // monForChange: new Date().getMonth(),
-            // activeDate: new Date(),
-            // getFirstDay: (yy, mm) => new Date(yy, mm, 1),
-            // getLastDay: (yy, mm) => new Date(yy, mm + 1, 0),
-
-            monForChange: new Date('2024-01-20 15:30').getMonth(),
-            activeDate: new Date('2024-01-20 15:30'),
-            // getFirstDay: (yy, mm) => new Date(2024, 0, 1),
-            // getLastDay: (yy, mm) => new Date(2024, 0+ 1, 0),
-            getFirstDay: (yy, mm) => new Date(yy, mm, 1),
-            getLastDay: (yy, mm) => new Date(yy, mm+ 1, 0),
-
-            nextMonth: function () {
-              let d = new Date('2024-01-20 15:30');
-              d.setDate(1);
-              d.setMonth(++this.monForChange);
-              this.activeDate = d;
-              return d;
-            },
-            prevMonth: function () {
-              let d = new Date('2024-01-20 15:30');
-              d.setDate(1);
-              d.setMonth(--this.monForChange);
-              this.activeDate = d;
-              return d;
-            },
-            addZero: (num) => (num < 10) ? '0' + num : num,
-            activeDTag: null,
-            getIndex: function (node) {
-              let index = 0;
-              while (node = node.previousElementSibling) {
-                index++;
-              }
-              return index;
-            }
-          };
-          
-          const $calBody = document.querySelector('.cal-body');
-          const $btnNext = document.querySelector('.btn-cal.next');
-          const $btnPrev = document.querySelector('.btn-cal.prev');
-          
-
-          function loadDate (date, dayIn, wedtime, wedminutes) {
-            document.querySelector('.cal-date').textContent = '2024. 1 . ' + date; // 여기에 월 추가하기
-            document.querySelector('.cal-day').textContent = init.dayList[dayIn];
-            // 231215 추가
-            document.querySelector('.cal-wedtime').textContent = wedtime + ' : ' + wedminutes;
-          }
-          
-
-          function loadYYMM (fullDate) {
-            let yy = fullDate.getFullYear();
-            let mm = fullDate.getMonth();
-            let firstDay = init.getFirstDay(yy, mm);
-            let lastDay = init.getLastDay(yy, mm);
-            let markToday;  // for marking today date
-            
-            if (mm === init.today.getMonth() && yy === init.today.getFullYear()) {
-              markToday = init.today.getDate();
-            }
-          
-            document.querySelector('.cal-month').textContent = init.monList[mm];
-            document.querySelector('.cal-year').textContent = yy;
-          
-            let trtd = '';
-            let startCount;
-            let countDay = 0;
-            for (let i = 0; i < 6; i++) {
-              trtd += '<tr>';
-              for (let j = 0; j < 7; j++) {
-                if (i === 0 && !startCount && j === firstDay.getDay()) {
-                  startCount = 1;
-                }
-                if (!startCount) {
-                  trtd += '<td>'
-                } else {
-                  let fullDate = yy + '.' + init.addZero(mm + 1) + '.' + init.addZero(countDay + 1);
-                  trtd += '<td class="day';
-                  trtd += (markToday && markToday === countDay + 1) ? ' today" ' : '"';
-                  trtd += ` data-date="${countDay + 1}" data-fdate="${fullDate}">`;
-                }
-                trtd += (startCount) ? ++countDay : '';
-                if (countDay === lastDay.getDate()) { 
-                  startCount = 0; 
-                }
-                trtd += '</td>';
-              }
-              trtd += '</tr>';
-            }
-            $calBody.innerHTML = trtd;
-          }
-          
-
-          function createNewList (val) {
-            let id = new Date().getTime() + '';
-            let yy = init.activeDate.getFullYear();
-            let mm = init.activeDate.getMonth() + 1;
-            let dd = init.activeDate.getDate();
-            const $target = $calBody.querySelector(`.day[data-date="${dd}"]`);
-          
-            let date = yy + '.' + init.addZero(mm) + '.' + init.addZero(dd);
-          
-            let eventData = {};
-            eventData['date'] = date;
-            eventData['memo'] = val;
-            eventData['complete'] = false;
-            eventData['id'] = id;
-            init.event.push(eventData);
-            $todoList.appendChild(createLi(id, val, date));
-          }
-          
-
-          loadYYMM(init.weddate);
-          loadDate(init.weddate.getDate(), init.weddate.getDay(), init.weddate.getHours(), init.weddate.getMinutes(),);
-          
-          $btnNext.addEventListener('click', () => loadYYMM(init.nextMonth()));
-          $btnPrev.addEventListener('click', () => loadYYMM(init.prevMonth()));
-          
-        </script>
-
         <!-- 달력 끝 -->
+
+
+
         </section>
 
         <!-- location-->
@@ -763,48 +371,7 @@
 
              
         <!-- 네이버 지도 시작 -->
-
-
         <div id="map" style="width:100%;height:400px;"></div>   
-             <script type="text/javascript" src="https://oapi.map.naver.com/openapi/v3/maps.js?ncpClientId=dq8jk6ll4q&callback=initMap"></script>
-             <script type="text/javascript">
-
-
-                var HOME_PATH = window.HOME_PATH || '.';
-                var position = new naver.maps.LatLng(37.500753, 127.003254);
-
-                var map = new naver.maps.Map('map', {
-                    center: position,
-                    zoom: 16, //지도의 초기 줌 레벨
-                    minZoom: 7, //지도의 최소 줌 레벨
-                    zoomControl: true, //줌 컨트롤의 표시 여부
-                    ZoomControlOptions: { //줌 컨트롤의 옵션
-                        position: naver.maps.Position.TOP_RIGHT
-                        }
-                });
-
-                var markerOptions = {
-                    position: position.destinationPoint(90, 15),
-                    map: map,
-                    icon: {
-                        url: './img/map/airplane_low3.png',
-                        size: new naver.maps.Size(47, 51),
-                        origin: new naver.maps.Point(0, 0),
-                        anchor: new naver.maps.Point(25, 41) // 앵커로 잡아야지 오류생기지않음
-                    }
-                };
-
-                var marker = new naver.maps.Marker(markerOptions);
-                // 이 위쪽으로는 마커 넣는 법
-
-
-
-                   map.setOptions("mapTypeControl", true); //지도 유형 컨트롤의 표시 여부
-             </script>
-
-
-
-
         <!-- 네이버 지도 끝 -->
 
             <div class="row gx-4 gx-lg-5">
@@ -841,174 +408,63 @@
 
 
 
-
-
         <!-- Contact2-->
         <section class="page-section" style="background-color: rgb(199 224 235 / 12%)" id="contact2">
 
+            <p class="d-flex justify-content-center">
+                <button class="btn btn-primary" type="button" data-bs-toggle="collapse" data-bs-target="#collapse_Groom" aria-expanded="false" aria-controls="collapse_Groom">
+                <h4 style="margin-bottom: 0rem;">신랑측 마음전할 곳</h4>
+                </button>
+            </p>
+            <div class="d-flex justify-content-center">
+                <div class="container collapse" id="collapse_Groom">
+                    <div class="card card-body">
 
-
-        <p class="d-flex justify-content-center">
-            <button class="btn btn-primary" type="button" data-bs-toggle="collapse" data-bs-target="#collapse_Groom" aria-expanded="false" aria-controls="collapse_Groom">
-            <h4 style="margin-bottom: 0rem;">신랑측 마음전할 곳</h4>
-            </button>
-        </p>
-        <div class="d-flex justify-content-center">
-            <div class="container collapse" id="collapse_Groom">
-                <div class="card card-body">
-                    <h4 class="d-flex justify-content-left">
-                    박태훈 신한은행</h4> 
-                    <h4><div class="" id="Groom_1">110295085552</div></h4>
-                     
-                    <button type="button" class="btn btn-outline-primary justify-content-center" onclick="copyToClipBoard_Groom_1()" style="font-size : 20px">계좌번호 복사</button>
-                    
-                    
-
-                    <script>
-                        function copyToClipBoard_Groom_1(){
-                        var content = document.getElementById('Groom_1').innerHTML;
-                    
-                        navigator.clipboard.writeText(content)
-                            .then(() => {
-                            Swal.fire("계좌번호가 복사되었습니다.");
-                        })
-                            .catch(err => {
-                            Swal.fire("오류가 발생하였습니다. 다시 시도해주세요.");
-                        })
-                        }
-                    </script>
-
-                    <h4 class="d-flex justify-content-left">
-                    박영달 산업은행</h4>
-                    <h4><div id="Groom_2">02041076744810</div> </h4>
-                    <button type="button" class="btn btn-outline-primary justify-content-center" onclick="copyToClipBoard_Groom_2()" style="font-size : 20px">계좌번호 복사</button>
-                    
-
-                    <script>
-                        function copyToClipBoard_Groom_2(){
-                        var content = document.getElementById('Groom_2').innerHTML;
-                    
-                        navigator.clipboard.writeText(content)
-                            .then(() => {
-                            Swal.fire("계좌번호가 복사되었습니다.");
-                        })
-                            .catch(err => {
-                            Swal.fire("오류가 발생하였습니다. 다시 시도해주세요.");
-                        })
-                        }            
-                    </script>
-
-                    <h4 class="d-flex justify-content-left">
-                    이혜경 농협</h4>
-                    <h4><div id="Groom_3">89012039070</div></h4>
-                    
-                    <button type="button" class="btn btn-outline-primary justify-content-center" onclick="copyToClipBoard_Groom_3()" style="font-size : 20px">계좌번호 복사</button>
-                    
-
-                    <script>
-                        function copyToClipBoard_Groom_3(){
-                        var content = document.getElementById('Groom_2').innerHTML;
-
-                        navigator.clipboard.writeText(content)
-                            .then(() => {
-                            Swal.fire("계좌번호가 복사되었습니다.");
-                        })
-                            .catch(err => {
-                            Swal.fire("오류가 발생하였습니다. 다시 시도해주세요.");
-                        })
-                        }            
-                    </script>
-
+                        <h4 class="d-flex justify-content-left">박태훈 신한은행</h4>
+                        <h4>110295085552</h4>
+                        <button type="button" class="btn btn-outline-primary justify-content-center copy-btn" data-target="110295085552" style="font-size: 20px">계좌번호 복사</button>
+        
+                        <h4 class="d-flex justify-content-left">박영달 산업은행</h4>
+                        <h4>02041076744810</h4>
+                        <button type="button" class="btn btn-outline-primary justify-content-center copy-btn" data-target="02041076744810" style="font-size: 20px">계좌번호 복사</button>
+        
+                        <h4 class="d-flex justify-content-left">이혜경 농협</h4>
+                        <h4>89012039070</h4>
+                        <button type="button" class="btn btn-outline-primary justify-content-center copy-btn" data-target="89012039070" style="font-size: 20px">계좌번호 복사</button>
+                    </div>
                 </div>
             </div>
-        </div>
 
 
         <br>
 
-
         <p class="d-flex justify-content-center">
             <button class="btn btn-primary" type="button" data-bs-toggle="collapse" data-bs-target="#collapse_Bride" aria-expanded="false" aria-controls="collapse_Bride">
-            <h4 style="margin-bottom: 0rem;">
-            신부측 마음전할 곳
-            </h4>
+            <h4 style="margin-bottom: 0rem;">신부측 마음전할 곳</h4>
             </button>
         </p>
         <div class="d-flex justify-content-center">
             <div class="container collapse" id="collapse_Bride">
-                <div class="card card-body" >
-                    <h6 class="d-flex justify-content-left">
-                    김유라 하나은행</h6>
-                    <h6><div id="Bride_1">16691002251705</div></h6>
-                    
-                    <button type="button" class="btn btn-outline-primary justify-content-center" onclick="copyToClipBoard_Bride_1()" style="font-size : 20px">계좌번호 복사</button>
-                    
-
-                    <script>
-                        function copyToClipBoard_Bride_1(){
-                        var content = document.getElementById('Bride_1').innerHTML;
-                    
-                        navigator.clipboard.writeText(content)
-                            .then(() => {
-                            Swal.fire("계좌번호가 복사되었습니다.");
-                        })
-                            .catch(err => {
-                            Swal.fire("오류가 발생하였습니다. 다시 시도해주세요.");
-                        })
-                        }
-                    </script>
-
-                    <h6 class="d-flex justify-content-left">
-                    김덕기 신한은행<h6>
-                    <h6><div id="Bride_2">110513380310</div></h6>
-                    <button type="button" class="btn btn-outline-primary justify-content-center" onclick="copyToClipBoard_Bride_2()" style="font-size : 20px">계좌번호 복사</button>
-                    
-
-                    <script>
-                        function copyToClipBoard_Bride_2(){
-                        var content = document.getElementById('Bride_2').innerHTML;
-                    
-                        navigator.clipboard.writeText(content)
-                            .then(() => {
-                            Swal.fire("계좌번호가 복사되었습니다.");
-                        })
-                            .catch(err => {
-                            Swal.fire("오류가 발생하였습니다. 다시 시도해주세요.");
-                        })
-                        }            
-                    </script>
-
-                    <h6 class="d-flex justify-content-left">
-                    조성애 농협</h6>
-                    <h6><div id="Bride_3">30712551196330</div>
-                    </h6>
-                    <button type="button" class="btn btn-outline-primary justify-content-center" onclick="copyToClipBoard_Bride_3()" style="font-size : 20px">계좌번호 복사</button>
-                    
-
-
-                    <script>
-                        function copyToClipBoard_Bride_3(){
-                        var content = document.getElementById('Bride_3').innerHTML;
-
-                        navigator.clipboard.writeText(content)
-                            .then(() => {
-                            Swal.fire("계좌번호가 복사되었습니다.");
-                        })
-                            .catch(err => {
-                            Swal.fire("오류가 발생하였습니다. 다시 시도해주세요.");
-                        })
-                        }            
-                    </script>
-
+                <div class="card card-body">
+                    <h4 class="d-flex justify-content-left">김유라 하나은행</h4>
+                    <h4>16691002251705</h4>
+                    <button type="button" class="btn btn-outline-primary justify-content-center copy-btn" data-target="16691002251705" style="font-size: 20px">계좌번호 복사</button>
+    
+                    <h4 class="d-flex justify-content-left">김덕기 신한은행</h4>
+                    <h4>110513380310</h4>
+                    <button type="button" class="btn btn-outline-primary justify-content-center copy-btn" data-target="110513380310" style="font-size: 20px">계좌번호 복사</button>
+    
+                    <h4 class="d-flex justify-content-left">조성애 농협</h4>
+                    <h4>30712551196330</h4>
+                    <button type="button" class="btn btn-outline-primary justify-content-center copy-btn" data-target="30712551196330" style="font-size: 20px">계좌번호 복사</button>
                 </div>
             </div>
         </div>
 
 
-
-
-
         </section>
+
+
         <section class="page-section"  style="background-color:rgb(36 205 243 / 7%)" id="guest-book">
             <div class="container px-4 px-lg-5">
                 <div class="row gx-4 gx-lg-5 justify-content-center">
@@ -1057,7 +513,6 @@
             <!-- 이 부분이 방명록 채워질 부분 -->
             <div class="container-guest-book mt-3"> 
             </div>
-            <!-- 이 부분이 방명록 채워질 부분 -->
 
 
         </section>
@@ -1067,8 +522,7 @@
             <div class="container px-4 px-lg-5"><h6><div class="small text-center text-muted">본 페이지는 모바일에 최적화되어있습니다 &#x1F490; </div></h6></div>
         </footer>
 
-        <!-- Core theme JS-->
-        <script src="js/scripts.js"></script>
+
 
     </body>
 </html>

@@ -1,0 +1,22 @@
+@font-face { 
+    font-family: 'NanumSquareAcr' ; 
+    src: url("../font/NanumSquare_acB.ttf") format("truetype"); 
+    font-weight: normal; 
+}
+
+* {
+    font-family: 'NanumSquareAcr', sans-serif !important; 
+}
+
+
+body {
+    margin: 0;
+    padding: 0;
+    font-size: 14px;
+    line-height: 1.6;
+    font-family: 'NanumSquareAcr', sans-serif !important;
+    color: #464646;
+    letter-spacing: 0;
+    -webkit-text-size-adjust: none;
+    font-weight: 400;
+}

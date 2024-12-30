@@ -2,8 +2,19 @@ rules_version = '2';
 
 service cloud.firestore {
   match /databases/{database}/documents {
+    match /product/{document=**} {
+      // 읽기와 쓰기는 누구나 가능
+      allow read, write: if true;
+
+      // 삭제 작업은 관리자(특정 Firebase Console 접속 권한이 있는 사람)만 가능
+      allow delete: if false; // 모든 사용자의 삭제 권한 차단
+    }
+    // 방명록(product 컬렉션) 외의 데이터는 읽기/쓰기 모두 불가
     match /{document=**} {
       allow read, write: if false;
+
+      // 삭제 작업은 관리자(특정 Firebase Console 접속 권한이 있는 사람)만 가능
+      allow delete: if false; // 모든 사용자의 삭제 권한 차단
     }
   }
 }
